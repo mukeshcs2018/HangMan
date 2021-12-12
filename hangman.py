@@ -1,4 +1,5 @@
 import random
+from replit import clear
 
 status = ['''
   +---+
@@ -81,13 +82,18 @@ end_of_game = False
 
 while not end_of_game:
     user_guess = input("Gues your letter: ").lower()
+    
+    clear()
+
     for position in range(word_length):
         letter = choosen_word[position]
         if letter == user_guess:
+            print("You guess a right letter ")
             display[position] = letter
     
         
     if user_guess not in choosen_word:
+        print("You have choose wrong letter that is not in word. ")
         lives -= 1
         if lives == 0:
             end_of_game = True
